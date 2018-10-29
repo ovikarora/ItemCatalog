@@ -1,0 +1,32 @@
+
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+			
+
+<h2>Edit Menu Item: {{item.name}}</h2>
+<form action = "{{ url_for('editMenuItem', restaurant_id = restaurant_id, menu_id = item.id) }}" method = "post">
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input type ="text" size="30" class="form-control" name="name"  value="{{item.name }}">
+			<label for="description">Description:</label>
+			<input type="text" size="30" class="form-control" name="description" value="{{ item.description }}">
+				<label for="price">Price:</label>
+				<p>$</p>
+				<input type="text" class="form-control" size="30" name="price" value="" ="{{ item.price }}">
+					<label for="image">Image:</label>
+					<input  class="form-control" id="image" type="text" alt="Login" name="image"  value="{{item.image}}">
+						<label for="categories">Categories:</label>
+						<input type="text" size="30" class="form-control" name="categories" value="{{ item.categories }}">
+						</div>
+						<button type="submit" class="btn btn-default">
+							<i class="material-icons">done</i>Done
+						</button>
+						<a href = '{{url_for('showMenu', restaurant_id = restaurant_id) }}'>
+							<button type="submit" class="btn btn-warning">
+								<i class="material-icons">cancel</i>Cancel
+							</button>
+						</a>
+					</form>	
+{% endblock %}
+

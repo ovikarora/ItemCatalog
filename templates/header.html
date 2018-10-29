@@ -1,0 +1,31 @@
+
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" style="color:white;">Tasty</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li>
+				<a href="{{url_for('showRestaurants')}}" class="waves-effect waves-light btn">
+					<span class="glyphicon glyphicon-cutlery"></span> Show Restaurants
+				</a>
+			</li>
+			{% if login == 0 %}
+			
+			<li>
+				<a href="{{url_for('showLogin')}}" class="waves-effect waves-light btn">
+					<span class="glyphicon glyphicon-log-in"></span> Login
+				</a>
+			</li>
+			{% endif %}
+			{% if login == 1 %}
+			
+			<li>
+				<a href="{{url_for('gdisconnect')}}" class="waves-effect waves-light btn">
+					<span class="glyphicon glyphicon-log-out"></span> Logout
+				</a>
+			</li>
+			{% endif %}
+		
+		</ul>
+	</div>
+</nav>

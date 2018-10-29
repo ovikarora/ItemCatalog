@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+		
+		
+<h2>New Menu Item</h2>
+<form action="{{ url_for('newMenuItem', restaurant_id = restaurant_id) }}" method = 'POST'>
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the item" required>
+			<label for="description">Description:</label>
+			<input class="form-control" maxlength="250"  name="description" placeholder="Description of the Item" required>
+				<label for="price">Price:</label>
+				<input type ="text" class="form-control" maxlength="10" name="price" placeholder="Price of item in $" required>
+					<label for="image">image:</label>
+					<input  class="form-control" id="image" name="image" type="text" placeholder="Enter item image url"required>
+						<label for="category">category:</label>
+						<input  class="form-control" id="category" name="category" type="text" placeholder="Enter item category" required>
+						</div>
+						<button type="submit" class="btn btn-info">
+							<i class="material-icons">create</i>
+					Create
+				
+						</button>
+						<br>
+						</form>
+						<a href = '{{url_for('showRestaurants', restaurant_id=restaurant_id)}}'>
+							<button class="btn btn-info">
+								<i class="material-icons">cancel</i>Cancel 
+							</button>
+						</a>
+
+{% endblock %}

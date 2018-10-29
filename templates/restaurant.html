@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div>
+  
+  <h1 align="center"><u>RESTAURANTS</u></h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      
+  <ul>
+         {% for message in messages %}
+         
+    <li>
+      <strong>{{ message }}</strong>
+    </li>
+         {% endfor %}
+      
+  </ul>
+      {% endif %}
+      {% endwith %}
+      {% if 'username' in login_session %}
+      
+  
+    
+      {% else %}
+      {% endif %}
+      
+     
+        
+      {% for restaurant in restaurants %}
+      <div class="container">
+               <div class="panel panel-default">
+                  <div class="panel-body">
+          <a href= '{{url_for('showMenu', restaurant_id = restaurant.id) }}' class="as">{{ restaurant.name }}</a>
+          </div>
+                  </div>
+               </div>  
+          <br><br>
+           {% endfor %}
+
+                </div>
+{% endblock %}
+  
